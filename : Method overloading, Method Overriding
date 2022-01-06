@@ -1,0 +1,75 @@
+import java.util.*;
+class Box{
+	float l,b;
+	void read_info(){
+		this.l=20;
+		this.b=30;
+	}
+	void read_info(float l){
+		this.l=l;
+		this.b=l;
+	}
+	void read_info(float l,float b){
+		this.l=l;
+		this.b=b;
+	}
+	void area(){
+		System.out.println("length="+l+"\nbreadth="+b+"area is:"+l*b);
+	}
+}
+class MethodOverloading{
+	public static void main(String[] args){
+		Scanner obj = new Scanner(System.in);
+		float len,br;
+		Box ob = new Box();
+		ob.read_info();	
+		ob.area();
+		System.out.println("enter length");
+		len=obj.nextFloat();
+		ob.read_info(len);
+		ob.area();
+		System.out.println("enter breadth");
+		br=obj.nextFloat();
+		ob.read_info(len,br);
+		ob.area();
+	}
+}
+
+
+
+
+
+import java.util.*;
+class Figure{
+	int s1,s2;
+	Scanner obj = new Scanner(System.in);
+	void read_info(){
+		System.out.println("enter 1st side");
+		s1=obj.nextInt();
+		System.out.println("enter 2st side");
+		s2=obj.nextInt();
+	}
+	void area(){
+		System.out.println("enter right dimensions");
+	}
+}
+class Rectangle extends Figure{
+	void area(){
+		System.out.println("area of rectangle is:"+s1*s2);
+	}
+}
+class Triangle extends Figure{
+	void area(){
+		System.out.println("area of triangle is:"+0.5*s1*s2);
+	}
+}
+class MethodOverriding{
+	public static void main(String[] args){
+		Rectangle r= new Rectangle();
+		r.read_info();
+		r.area();
+		Triangle t = new Triangle();
+		t.read_info();
+		t.area();
+	}
+}
