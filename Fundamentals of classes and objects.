@@ -1,0 +1,43 @@
+import java.util.*;
+class Employee{
+	Scanner obj = new Scanner(System.in);
+	int id;
+	String name,dgn;
+	void reademp(){
+		System.out.println("enter employee name");
+		name=obj.nextLine();
+		System.out.println("enter the designation role of employee");
+		dgn=obj.nextLine();
+		System.out.println("enter employee id");
+		id=obj.nextInt();
+	}
+}
+class Salary extends Employee{
+	float bp,hra,da,pf,result;
+	void readsalary(){
+		Scanner obj2 = new Scanner(System.in);
+		System.out.println("enter the basic payof an emloyee");
+		bp=obj2.nextFloat();
+		System.out.println("enter HRA of employee");
+		hra=obj2.nextFloat();
+		System.out.println("enter the DA of an emloyee");
+		da=obj2.nextFloat();
+		System.out.println("enter the PF of an emloyee");
+		pf=obj2.nextFloat();
+	}
+	void calculatesalary(){
+		result=bp+hra+da-pf;
+	}
+	void display(){
+		System.out.println("employee name:"+name+"\nemployee id:"+id+"\ndesignation:"+dgn+"\n salary is:"+result);
+		}
+}
+class Inheritance extends Salary{
+	public static void main(String[] args){
+		Inheritance sal = new Inheritance();
+		sal.reademp();
+		sal.readsalary();
+		sal.calculatesalary();
+		sal.display();
+	}
+}
