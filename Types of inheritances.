@@ -1,0 +1,163 @@
+import java.util.*;
+class Employee{
+Scanner obj = new Scanner(System.in);
+int id;
+String name,dgn;
+void reademp(){
+System.out.println("enter employee name");
+name=obj.nextLine();
+System.out.println("enter the designation role of employee");
+dgn=obj.nextLine();
+System.out.println("enter employee id");
+id=obj.nextInt();
+}
+}
+class Salary extends Employee{
+float bp,hra,da,pf,result;
+void readsalary(){
+Scanner obj2 = new Scanner(System.in);
+System.out.println("enter the basic pay of an employee");
+bp=obj2.nextFloat();
+System.out.println("enter HRA of employee");
+hra=obj2.nextFloat();
+System.out.println("enter the DA of an employee");
+da=obj2.nextFloat();
+System.out.println("enter the PF of an employee");
+pf=obj2.nextFloat();
+}
+void calculatesalary(){
+result=bp+hra+da-pf;
+}
+void display(){
+System.out.println("employee name:"+name+"\nemployee id:"+id+"\ndesignation:"+dgn+"\n salary is:"+result);
+}
+}
+class Inheritance extends Salary{
+public static void main(String[] args){
+Inheritance sal = new Inheritance();
+sal.reademp();
+sal.readsalary();
+sal.calculatesalary();
+sal.display();
+}
+}
+
+
+
+
+class Student{
+String name;
+int rno;
+Scanner sc = new Scanner(System.in);
+void sturead(){
+System.out.println("enter name");
+name=sc.nextLine();
+System.out.println("enter roll number");
+rno=sc.nextInt();
+}
+}
+class Test extends Student{
+int m[] = new int[6];
+Scanner obj = new Scanner(System.in);
+void marksinfo(){
+for(int i=0;i<6;i++){
+System.out.println("enter marks of subject-"+(i+1));
+m[i]=obj.nextInt();
+}
+}
+}
+class Result extends Test{
+int sum=0;
+void totalmarks(){
+for(int i=0;i<6;i++){
+sum+=m[i];
+}
+}
+void display(){
+System.out.print("Student name:"+name+"\nroll number:"+rno+"\nmarks  ");
+for(int i=0;i<6;i++){
+System.out.print("  "+m[i]);
+}
+System.out.println("\ntotal marks obtained by a student is:"+sum);
+}
+}
+class StudentDemo {
+public static void main(String[] args){
+Scanner obj1 = new Scanner(System.in);
+System.out.println("enter the no of students");
+int n=obj1.nextInt();
+Result r[] = new Result[n];
+for(int i=0;i<n;i++){
+r[i]=new Result();
+r[i].sturead();
+r[i].marksinfo();
+r[i].totalmarks();
+
+}
+for(int i=0;i<n;i++){
+r[i].display();
+System.out.println("###################");
+}
+}
+}
+
+
+
+import java.util.*;
+class Employee{
+	String name;
+	int id;
+	public float sal;
+	Scanner obj =new Scanner(System.in);
+	void emp_info(){
+		System.out.println("enter employee name");
+		name=obj.nextLine();
+		System.out.println("enter employee id");
+		id=obj.nextInt();
+		System.out.println("enter salary");
+		sal=obj.nextInt();
+		
+	}
+}
+class permanent_employee extends Employee{
+	void increment1(){
+		sal += sal*(5.0/100);
+	}
+	void display1(){
+		System.out.println("employee name:"+name+"\nemployee id"+id+"\nincremented salary"+sal);
+	}
+}
+class temporary_employee extends Employee{
+	void increment2(){
+		sal += (3.5/100)*sal;
+	}
+	void display(){
+		System.out.println("employee name:"+name+"\nemployee id"+id+"\nincremented salary"+sal);
+	}
+}
+class EmployeeDemo {
+	
+	public static void main(String[] args){
+		Scanner obj1 =new Scanner(System.in);
+		System.out.println("enter no of employees");
+		int a= obj1.nextInt();
+		int ni;
+		for(int j=0;j<a;j++){
+			System.out.println("enter 1:for permenent employee\n2:for temporary emploee\n");
+			ni=obj1.nextInt();
+			if(ni==1){
+				permanent_employee pe = new permanent_employee();
+				pe.emp_info();
+				pe.increment1();
+				pe.display1();
+			}
+			else{
+				temporary_employee te = new temporary_employee();
+				te.emp_info();
+				te.increment2();
+				te.display();
+			}
+		}
+
+	}
+}
