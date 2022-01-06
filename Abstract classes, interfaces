@@ -1,0 +1,119 @@
+import java.util.*;
+abstract class Shape{
+Scanner obj = new Scanner(System.in);
+abstract void printArea();
+}
+class Rectangle extends Shape{
+double l,b;
+  void readEle(){
+System.out.println("enter length and breadth");
+l=obj.nextInt();
+b=obj.nextInt();
+}
+void printArea(){
+System.out.println("area of rectangle is:"+l*b);
+}
+}
+class Triangle extends Shape{
+double b,h;
+void readEle(){
+System.out.println("enter base and height");
+b=obj.nextInt();
+h=obj.nextInt();
+}
+void printArea(){
+System.out.println("area of triangle is:"+0.5*b*h);
+}
+}
+class Circle extends Shape{
+double r;
+void readEle(){
+System.out.println("enter radius");
+r=obj.nextInt();
+}
+
+void printArea(){
+System.out.println("area of circle is:"+Math.PI*r*r);
+}
+}
+class Abstract{
+public static void main(String[] args){
+Rectangle r = new Rectangle();
+r.readEle();
+Triangle t = new Triangle();
+t.readEle();
+Circle c = new Circle();
+c.readEle();
+r.printArea();
+t.printArea();
+c.printArea();
+}
+}
+
+
+
+
+
+
+import java.util.*;
+interface Student{
+void getvalue();
+}
+interface Department{
+void getattendense();
+}
+class Exam implements Student,Department{
+int sno;
+String cla;
+String sname;
+Scanner obj = new Scanner(System.in);
+public void getvalue(){
+System.out.println("enter student name");
+sname=obj.nextLine();
+System.out.println("enter CLASS:");
+cla = obj.nextLine();
+System.out.println("enter student r.no:");
+sno = obj.nextInt();
+}
+int sum=0;
+int att[]=new int[10];
+public void getattendense(){
+System.out.println("enter attendence by month");
+for(int i=0;i<10;i++){
+System.out.println("enter "+(i+1)+" month attendense");
+att[i] = obj.nextInt();
+}
+}
+void calattendense(){
+
+for(int i=0;i<10;i++){
+sum+=att[i];
+}
+}
+
+public boolean eligible(){
+System.out.println("Name:"+sname+"\n"+"class:"+cla+"\n"+"S.No:"+sno+"\n"+"attendense:"+sum);
+System.out.print("eligibility:");
+if(sum>180){
+return true;
+}else{
+return false;
+}
+}
+}
+class Interface{
+public static void main(String[] atrgs){
+Scanner obj2 = new Scanner(System.in);
+System.out.println("enter no of students");
+int n=obj2.nextInt();
+
+for(int i=0;i<n;i++){
+Exam e = new Exam();
+e.getvalue();
+e.getattendense();
+e.calattendense();
+e.eligible();
+System.out.println(e.eligible());
+}
+}
+}
