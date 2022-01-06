@@ -1,0 +1,75 @@
+class outer{
+	int x=100;
+	class inner{
+		void display(){
+			System.out.println("variable x is"+x);
+		}
+	}
+	void test(){
+		inner obj = new inner();
+		obj.display();
+	}
+}
+class InnerClassDemo{
+	public static void main(String args[]){
+		outer obj1 = new outer();
+		obj1.test();
+		
+	}
+}
+
+
+
+
+
+
+class Demo{
+	int h=0,m=0,s=0;
+	Demo(){
+		this.h=h;
+		this.m=m;
+		this.s=s;
+	}
+	Demo(int s){
+		int min=s/60,sec=s%60;
+		if(min>60){
+		h += (min/60);
+		min%=60;
+		
+		}
+		this.h=h;
+		this.m=min;
+		this.s=sec;
+	}
+	Demo(int h, int m){
+		if(m>60){
+			s+=m%60;
+			m/=60;
+			h+=m;
+			
+		}
+		this.h=h;
+		this.m=m;
+		this.s=s;
+	}
+	Demo(int h, int m,int s){
+		this.h=h;
+		this.m=m;
+		this.s=s;
+	}
+	void display(){
+		System.out.println("time is"+h+":"+m+":"+s);
+	}
+}
+class ConstructorDemo{
+	public static void main(String args[]){
+		Demo obj = new Demo();
+		obj.display();
+		Demo obj1 = new Demo(15000);
+		obj1.display();
+		Demo obj2 = new Demo(3,74);
+		obj2.display();
+		Demo obj3 = new Demo(2,49,9);
+		obj3.display();
+	}
+}
