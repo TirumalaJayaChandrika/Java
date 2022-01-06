@@ -1,0 +1,82 @@
+class UseOfStatic{
+	static int i=6;
+	int n;
+	public static void main(String[] args){
+		System.out.println("in main");
+		printHi(i);
+		System.out.println("in main in i value"+i);
+		}
+	
+	static void printHi(int i){
+		int a=10;
+		System.out.println("declared inside ststic method "+a);
+		System.out.println("in static method");
+		System.out.println("num is"+(++i));
+		System.out.println("print i value"+i);
+	}
+	static{
+		System.out.println("in static block");
+		}
+}
+
+
+
+
+
+class ThisKeyword{
+	int m,n;
+	int s;
+	int a=10;
+	public void get(int n,int m){
+		this.m=m;
+		this.n=n;
+		this.a=m;
+	}
+	public void sum(){
+	s=m+n;
+	System.out.println("a inside class is"+a);
+	System.out.println("sum is"+s);
+	}
+
+}
+class ThisK{
+	public static void main(String[] args){
+	ThisKeyword obj=new ThisKeyword();
+	obj.get(10,20);
+	obj.sum();
+	System.out.println("outside class a="+obj.a);
+	ThisKeyword obj1=new ThisKeyword();
+	obj1.get(200,300);
+	obj1.sum();
+	System.out.println("outside class a="+obj1.a);
+	}
+}
+
+
+
+
+
+public class VariableLengthArg{
+	int a,s=0;
+	String b;
+	public void sum(int ...a){
+		for(int i:a){
+			s+=i;
+		}
+		System.out.println("sum is"+s);
+	}
+	void printu(String ...b){
+
+		for(String i:b){
+			System.out.println(i);
+		}
+	}
+	public static void main(String args[]){
+		
+		VariableLengthArg obj = new VariableLengthArg();
+		obj.sum(2,3,4,5,6,1);
+		obj.sum(13,4,7);
+		VariableLengthArg obj1 = new VariableLengthArg();
+		obj1.printu("chandu","sri","vijji","pravee");
+	}
+}
