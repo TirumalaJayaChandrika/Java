@@ -1,0 +1,63 @@
+import java.util.*;
+import java.lang.*;
+class StringMethods{
+	public static void methods(String s){
+		Scanner obj =new Scanner(System.in);
+		System.out.println("enter index value");
+		int i= obj.nextInt();
+		System.out.println("character at given index  "+s.charAt(i));
+		System.out.println(String.format("%s","hi ")+s);
+		System.out.println("substring is "+s.substring(0,2));
+		System.out.println("string contains the asked character :"+s.contains("a"));
+		System.out.println("testing 2 strings: "+s.equals("jaya"));	
+		 System.out.println("concating: "+s.concat("chandrika"));
+		 System.out.println("replacing string with a character: "+s.replace('a','m'));
+		 System.out.println("replacing string with a string: "+s.replace("ja","mo"));
+		 System.out.println("checks 2 strings by ignoring case"+s.equalsIgnoreCase("JAyA"));
+		String[] str=s.split(" ",3);
+		for(String a:str){
+			 System.out.println(a);
+		}
+		 System.out.println("index of given character:"+s.indexOf('a'));
+		System.out.println("index of given character beyond given index:"+s.indexOf('a',5));
+		System.out.println("index of given string:"+s.indexOf("ya"));
+		System.out.println("index of given string beyond given index:"+s.indexOf("ya",7));
+		 System.out.println("string to upper case :"+s.toUpperCase());
+		 System.out.println("trimming a string :"+s.trim());
+		 System.out.println("string form of given type: "+String.valueOf(47)+67);
+		
+}
+	public static void main(String[] args){
+
+		Scanner sc =new Scanner(System.in);
+		System.out.println("enter string");
+		String s = sc.nextLine();
+		StringMethods.methods(s);
+	}
+}
+
+
+ouput:
+enter string
+   jaya how r uya
+enter index value
+3
+character at given index  j
+hi    jaya how r uya
+substring is
+string contains the asked character :true
+testing 2 strings: false
+concating:    jaya how r uyachandrika
+replacing string with a character:    jmym how r uym
+replacing string with a string:    moya how r uya
+checks 2 strings by ignoring casefalse
+
+
+ jaya how r uya
+index of given character:4
+index of given character beyond given index:6
+index of given string:5
+index of given string beyond given index:15
+string to upper case :   JAYA HOW R UYA
+trimming a string :jaya how r uya
+string form of given type: 4767
