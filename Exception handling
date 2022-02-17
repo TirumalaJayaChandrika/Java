@@ -1,0 +1,24 @@
+import java.util.*;
+class CheckException{
+	public static void main(String[] args){
+		int n;
+		System.out.println("enter size of array");
+		Scanner sc = new Scanner(System.in);
+		n=sc.nextInt();
+		try{
+			int arr[] = new int[n];
+			System.out.println("size of array is:"+arr.length);
+		}catch(NegativeArraySizeException e){
+			System.out.println("your exception is:"+e);
+		}
+		System.out.println("code was executed");
+	}
+}
+
+
+
+output:
+enter size of array
+-2847
+your exception is:java.lang.NegativeArraySizeException
+code was executed
