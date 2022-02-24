@@ -1,0 +1,30 @@
+import java.applet.*;
+import java.awt.*;
+public class MyProg extends Applet{
+	int x,y,b,h;
+	String s;
+	public void init(){
+	x=Integer.parseInt(getParameter("x"));
+	y=Integer.parseInt(getParameter("y"));
+	b=Integer.parseInt(getParameter("b"));
+	h=Integer.parseInt(getParameter("h"));
+	s=getParameter("s");
+	}
+	public void paint(Graphics g){
+	g.drawRect(x,y,b,h);
+	g.drawString(s,100,100);
+	}
+}
+
+
+<html>
+<body>
+<applet code="MyProg.class" width="200" height="200">
+<param name="x" value="100">  
+<param name="y" value="100">  
+<param name="b" value="50">  
+<param name="h" value="60">  
+<param name="s" value="Rectangle">  
+</applet>
+</body>
+</html>
