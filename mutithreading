@@ -1,0 +1,71 @@
+import java.util.*;
+class GetRandom extends Thread{
+GetRandom(){
+	start();
+}
+public void run(){
+	Random r = new Random();
+	int n=r.nextInt(1000);
+	System.out.println("ur random number is"+n);
+	
+	if(n%2==0){
+		Even e=new Even(n);
+	}
+	else{
+		Odd o = new Odd(n);
+	}
+}
+}
+class Even extends Thread{
+	int n;
+	Even(int n){
+		this.n = n;
+		start();
+	}
+	public void run(){
+		System.out.println(n + " is even so:"+n*n);
+	}
+}
+class Odd extends Thread{
+	int n;
+	Odd(int n){
+		this.n=n;
+		start();
+	}
+	public void run(){
+		System.out.println(n+ " is odd so: "+n*n*n);
+	}
+}
+class Test extends Thread{
+public static void main(String[] args){
+	System.out.println("enter no of numbers");
+ 	Scanner sc = new Scanner(System.in);
+	int m= sc.nextInt();
+	try{
+		for(int i=0;i<m;i++){
+			GetRandom ran = new GetRandom();
+			Thread.sleep(1000);
+		
+		}
+	}catch(InterruptedException e){
+		System.out.println("exception :"+e);
+	}
+
+
+}
+}
+
+
+output:
+enter no of numbers
+5
+ur random number is185
+185 is odd so: 6331625
+ur random number is194
+194 is even so:37636
+ur random number is90
+90 is even so:8100
+ur random number is729
+729 is odd so: 387420489
+ur random number is31
+31 is odd so: 29791
